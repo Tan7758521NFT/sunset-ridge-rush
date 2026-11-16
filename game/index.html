@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sunset Ridge Rush</title>
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div id="stage">
+  <canvas id="game" width="1280" height="720"></canvas>
+
+  <div id="hud">
+    <div class="hud-box" id="hud-speed-box"><span id="hud-speed">0</span><span class="unit">km/h</span></div>
+    <div class="hud-box"><span class="label">LAP</span><span id="hud-lap">1/3</span></div>
+    <div class="hud-box"><span class="label">POS</span><span id="hud-pos">1st</span></div>
+    <div class="hud-box"><span class="label">TIME</span><span id="hud-time">0:00.00</span></div>
+  </div>
+  <div id="hud-count"></div>
+  <div id="hud-msg"></div>
+  <div id="nitro-wrap"><div id="nitro-fill"></div><span id="nitro-label">NITRO — SHIFT</span></div>
+
+  <div class="screen show" id="screen-menu">
+    <h1>SUNSET RIDGE<br>RUSH</h1>
+    <p class="tag">3 laps. 5 rivals. 1 ridge at sunset. Don't kiss the cacti.</p>
+    <p class="controls">↑ / W accelerate &nbsp;·&nbsp; ↓ / S brake &nbsp;·&nbsp; ← → / A D steer &nbsp;·&nbsp; SHIFT nitro &nbsp;·&nbsp; P pause &nbsp;·&nbsp; M mute</p>
+    <button id="start-btn">START RACE</button>
+    <p id="menu-best"></p>
+  </div>
+
+  <div class="screen" id="screen-results">
+    <h2 id="res-title">RACE COMPLETE</h2>
+    <p class="big-place" id="res-place">1st</p>
+    <div class="res-rows">
+      <div><span>TOTAL TIME</span><b id="res-time">--:--.--</b></div>
+      <div><span>BEST LAP</span><b id="res-best">--:--.--</b></div>
+      <div><span>SCORE</span><b id="res-score">0</b></div>
+    </div>
+    <button id="again-btn">RACE AGAIN (R)</button>
+  </div>
+
+  <div id="pause-tip">PAUSED — press P to resume</div>
+  <button id="mute-btn">SOUND ON</button>
+  <div id="selftest"></div>
+  <div id="jserror"></div>
+</div>
+<script type="module" src="./src/main.js"></script>
+</body>
+</html>

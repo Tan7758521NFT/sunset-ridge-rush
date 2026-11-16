@@ -1,0 +1,100 @@
+/* Sunset Ridge Rush — page and HUD styling. System fonts only. */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { background: #160a24; height: 100%; overflow: hidden; }
+body { font-family: system-ui, -apple-system, "Segoe UI", sans-serif; color: #fff; }
+#stage { position: relative; width: 100vw; height: 100vh; }
+#game { display: block; width: 100vw; height: 100vh; object-fit: contain; background: #241040; }
+
+#hud {
+  position: absolute; top: 14px; left: 16px; right: 16px;
+  display: flex; gap: 12px; pointer-events: none;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.7);
+}
+.hud-box {
+  background: rgba(20, 8, 32, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 10px; padding: 8px 14px;
+  font-size: 28px; font-weight: 800; letter-spacing: 0.5px;
+}
+.hud-box .label { display: block; font-size: 11px; font-weight: 700; opacity: 0.75; letter-spacing: 2px; }
+.hud-box .unit { font-size: 14px; font-weight: 600; margin-left: 6px; opacity: 0.8; }
+#hud-speed-box { color: #ffd76a; }
+
+#hud-count {
+  position: absolute; top: 34%; left: 50%; transform: translate(-50%, -50%);
+  font-size: 150px; font-weight: 900; color: #ffd76a;
+  text-shadow: 0 4px 0 #e2483d, 0 8px 24px rgba(0,0,0,0.6);
+  display: none; pointer-events: none;
+}
+#hud-count.show { display: block; }
+#hud-msg {
+  position: absolute; top: 24%; left: 50%; transform: translateX(-50%);
+  font-size: 44px; font-weight: 900; letter-spacing: 3px; color: #fff;
+  text-shadow: 0 3px 0 #e2483d, 0 6px 18px rgba(0,0,0,0.65);
+  display: none; pointer-events: none;
+}
+#hud-msg.show { display: block; }
+
+#nitro-wrap {
+  position: absolute; bottom: 22px; left: 50%; transform: translateX(-50%);
+  width: 320px; height: 20px; border-radius: 10px;
+  background: rgba(20, 8, 32, 0.6); border: 1px solid rgba(255,255,255,0.35);
+  overflow: hidden; pointer-events: none;
+}
+#nitro-fill {
+  height: 100%; width: 100%;
+  background: linear-gradient(90deg, #ff9a3d, #ffd76a, #fff3b0);
+  transition: width 0.12s linear;
+}
+#nitro-wrap.low #nitro-fill { background: linear-gradient(90deg, #e2483d, #ff7e5f); }
+#nitro-label {
+  position: absolute; inset: 0; text-align: center;
+  font-size: 11px; font-weight: 800; letter-spacing: 3px; line-height: 20px;
+  color: #fff; text-shadow: 0 1px 3px rgba(0,0,0,0.9);
+}
+
+.screen {
+  position: absolute; inset: 0; display: none;
+  flex-direction: column; align-items: center; justify-content: center;
+  background: radial-gradient(ellipse at 50% 38%, rgba(36,16,64,0.25), rgba(16,6,28,0.78));
+  text-align: center; padding: 24px;
+}
+.screen.show { display: flex; }
+.screen h1 {
+  font-size: 92px; line-height: 0.95; font-weight: 900; letter-spacing: 2px;
+  background: linear-gradient(180deg, #ffe9a8, #ff9a3d 55%, #e2483d);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  filter: drop-shadow(0 4px 0 rgba(0,0,0,0.45));
+}
+.screen h2 { font-size: 54px; font-weight: 900; letter-spacing: 2px; color: #ffd76a; text-shadow: 0 3px 0 #e2483d; }
+.tag { margin-top: 16px; font-size: 21px; font-weight: 600; color: #ffe9c9; text-shadow: 0 2px 8px rgba(0,0,0,0.8); }
+.controls { margin-top: 12px; font-size: 15px; color: #e8d5ff; }
+.screen button {
+  margin-top: 26px; padding: 16px 46px; font-size: 24px; font-weight: 900;
+  letter-spacing: 2px; color: #1a0b2e; cursor: pointer;
+  background: linear-gradient(180deg, #ffd76a, #ff9a3d);
+  border: none; border-radius: 12px;
+  box-shadow: 0 5px 0 #b33a2c, 0 10px 24px rgba(0,0,0,0.5);
+}
+.screen button:hover { filter: brightness(1.08); }
+.screen button:active { transform: translateY(3px); box-shadow: 0 2px 0 #b33a2e; }
+#menu-best { margin-top: 18px; font-size: 15px; color: #ffd76a; }
+.big-place { font-size: 110px; font-weight: 900; color: #fff; text-shadow: 0 4px 0 #e2483d, 0 10px 30px rgba(0,0,0,0.6); line-height: 1; margin-top: 6px; }
+.res-rows { margin-top: 22px; display: flex; gap: 40px; }
+.res-rows div { display: flex; flex-direction: column; gap: 6px; }
+.res-rows span { font-size: 12px; letter-spacing: 2px; opacity: 0.75; }
+.res-rows b { font-size: 32px; }
+
+#pause-tip {
+  position: absolute; top: 46%; left: 50%; transform: translate(-50%, -50%);
+  font-size: 34px; font-weight: 900; color: #fff; display: none;
+  text-shadow: 0 3px 12px rgba(0,0,0,0.8); pointer-events: none;
+}
+#pause-tip.show { display: block; }
+#mute-btn {
+  position: absolute; right: 16px; bottom: 18px;
+  padding: 8px 14px; font-size: 13px; font-weight: 700; cursor: pointer;
+  background: rgba(20, 8, 32, 0.6); color: #fff;
+  border: 1px solid rgba(255,255,255,0.35); border-radius: 8px;
+}
+#selftest, #jserror { position: absolute; left: 8px; bottom: 8px; font-size: 12px; color: #0f0; display: none; }
